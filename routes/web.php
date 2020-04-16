@@ -11,6 +11,11 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::group(['prefix' => 'pessoas'], function () {
+    Route::get('/', 'PessoasController@index');
+    Route::get('/novo', 'PessoasController@cadastroView');
+    Route::get('/{id}/editar', 'PessoasController@editarView');
+    Route::post('/store', 'PessoasController@store');
+    Route::post('/update', 'PessoasController@update');
 });
+

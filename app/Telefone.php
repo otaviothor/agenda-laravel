@@ -9,7 +9,7 @@ class Telefone extends Model
     protected $fillable = [
         'id',
         'ddd',
-        'fone',
+        'telefone',
 
         // esse campo faz parte do relacionamento com a tabela pessoa
         'pessoa_id'
