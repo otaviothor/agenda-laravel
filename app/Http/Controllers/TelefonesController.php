@@ -14,7 +14,6 @@ class TelefonesController extends Controller
             $telefone->save();
         } catch (\Exception $e) {
             echo "Error {$e->getMessage()}";
-            exit;
         }
     }
 }

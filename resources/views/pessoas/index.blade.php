@@ -1,6 +1,23 @@
 @extends('template.app')
 
 @section('content')
+
+  <div class="row center">
+    <ul class="pagination">
+      @foreach (range('A', 'Z') as $letra)
+        @if ($letra !== $criterio)
+          <li class="waves-effect">
+            <a href="{{ url("pessoas/{$letra}") }}">{{ $letra }}</a>
+          </li>
+        @endif
+      @endforeach
+    </ul>
+  </div>
+
+  <div class="row">
+    <h3>Critério: {{ $criterio }}</h3>
+  </div>
+
   <div class="row white-text">
     @if(sizeof($pessoas) == 0)
       <div class="col s12">
@@ -19,6 +36,9 @@
             <p class="right-align">
               <a href="{{ url("/pessoas/{$pessoa->id}/editar") }}" class="white-text tooltipped" data-tooltip="Editar">
                 <span class="material-icons">create</span>
+              </a>
+              <a href="{{ url("/pessoas/{$pessoa->id}/excluir") }}" class="white-text tooltipped" data-tooltip="Excluir">
+                <span class="material-icons">delete</span>
               </a>
             </p>
           </div>

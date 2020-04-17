@@ -12,10 +12,17 @@
 */
 
 Route::group(['prefix' => 'pessoas'], function () {
-    Route::get('/', 'PessoasController@index');
+    Route::get('/', function (){
+        return redirect('/pessoas/a');
+    });
     Route::get('/novo', 'PessoasController@cadastroView');
     Route::get('/{id}/editar', 'PessoasController@editarView');
+    Route::get('/{id}/excluir', 'PessoasController@excluirView');
+    Route::get('/{id}/destroy', 'PessoasController@destroy');
     Route::post('/store', 'PessoasController@store');
     Route::post('/update', 'PessoasController@update');
+    Route::post('/update', 'PessoasController@update');
+    Route::post('/busca', 'PessoasController@buscar');
+    Route::get('/{letra}', 'PessoasController@index');
 });
 

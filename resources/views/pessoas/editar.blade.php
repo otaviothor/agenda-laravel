@@ -10,6 +10,9 @@
         <div class="row">
           <div class="input-field col s12">
             <input name="nome" value={{ $pessoa->nome }} type="text" placeholder="Nome" class="grey-text text-darken-4">
+            @if ($errors->has('nome'))
+              <span class="helper-text red-text">{{$errors->first('nome')}}</span>
+            @endif
             <input name="id" value={{ $pessoa->id }} type="hidden">
           </div>
           <div class="right-align col s12">
